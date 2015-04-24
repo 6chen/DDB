@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>데이터 베이스 설계 및 구축</title>
+<title>Insert title here</title>
 </head>
 <body>
-	
-
+	<p>데이터 베이스 설계 및 구축</p>
 </body>
 </html>
