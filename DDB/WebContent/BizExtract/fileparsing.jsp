@@ -23,10 +23,10 @@
 			<strong>요구사항 파일 파싱</strong>
 		</div>
 		<div class="panel-body">
-			<form action="fileparser" role="form">
+			<form action="./fileparser.jsp" role="form">
 				<div class="form-group">
-					<label for="usr">요구사항 파일 경로를 입력하세요(docx):</label>
-					<input type="text" class="form-control" id="usr">
+					<label for="filepath">요구사항 파일 경로를 입력하세요(docx):</label>
+					<input type="text" class="form-control" id="filepath" name="fileName">
 				</div>
 				<div>
 					<button type="button" class="btn btn-default">파일 경로</button>
