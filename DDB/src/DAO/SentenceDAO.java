@@ -12,16 +12,18 @@ import Model.Sentence;
 
 public class SentenceDAO {
 	private List<Sentence> sentences = new ArrayList<Sentence>();
+	private Connection conn = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
 	
-	public List<Sentence> getAllSentences() {
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
+	public List<Sentence> getAllSentByFileNo(String fileNo) {
+		
 		
 		try {
 			conn = DBConHelper.getConnection();
-			String sql = "select * from requir_sentences order by biz_requir_no, sentence_no";
+			String sql = "select * from requir_sentences where biz_requir_no = ? order by biz_requir_no, sentence_no";
 			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, fileNo);
 			rs = stmt.executeQuery();
 			
 			while (rs.next()) {
@@ -65,4 +67,14 @@ public class SentenceDAO {
 		
 		return sentences;
 	}
+	
+	public static void main(String[] args) {
+		SentenceDAO sentenceDAO = new SentenceDAO();
+		List<Sentence> sentences = sentenceDAO.getAllSentByFileNo("REQ00002");
+		
+		for (Sentence sentence : sentences) {
+			System.out.println(sentence.getBizRequirNo()+", "+sentence.getSentenceNo());
+		}
+	}
+	
 }
